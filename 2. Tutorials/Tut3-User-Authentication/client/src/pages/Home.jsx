@@ -9,35 +9,83 @@ import { ToastContainer, toast } from "react-toastify";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
+  const [cookies, removeCookie] = useCookies(["token"]);
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    const verifyCookie = async () => {
+    const verifyUser = async () => {
       if (!cookies.token) {
+        navigate("/login"); // Redirect if token is missing
+        return;
+      }
+
+      try {
+        const { data } = await axios.get("http://localhost:4000/verify", {
+          withCredentials: true,
+        });
+
+        if (data.success) {
+          setUsername(data.user);
+          toast.success(`Welcome, ${data.user}`, { position: "top-right" });
+        } else {
+          removeCookie("token");
+          navigate("/login");
+        }
+      } catch (error) {
+        console.error("Verification error:", error);
         navigate("/login");
       }
-      const { data } = await axios.post(
-        "http://localhost:4000",
-        {},
-        { withCredentials: true }
-      );
-      const { status, user } = data;
-      setUsername(user);
-      return status
-        ? toast(`Hello ${user}`, {
-            position: "top-right",
-          })
-        : (removeCookie("token"), navigate("/login"));
     };
-    verifyCookie();
+
+    verifyUser();
   }, [cookies, navigate, removeCookie]);
-  
+
   const Logout = () => {
     removeCookie("token");
-    navigate("/signup");
+    navigate("/login");
   };
 
+  // useEffect(() => {
+  //   const verifyCookie = async () => {
+  //     if (!cookies.token) {
+  //       navigate("/login");
+  //       return;
+  //     }
+  //     try {
+  //       //
+  //       const { data } = await axios.get("http://localhost:4000", {
+  //         withCredentials: true,
+  //       });
+
+  //       if (data.success) {
+  //         //
+  //         setUsername(data.user);
+  //         toast.success(`Hello ${data.user}`, { position: "top-right" });
+  //       } else {
+  //         removeCookie("token");
+  //         navigate("/login");
+  //       }
+  //     } catch (error) {
+  //       console.error(error);
+  //       removeCookie("token");
+  //       navigate("/login");
+  //     }
+  //   };
+    //   const { status, user } = data;
+    //   setUsername(user);
+    //   return status
+    //     ? toast(`Hello ${user}`, {
+    //         position: "top-right",
+    //       })
+    //     : (removeCookie("token"), navigate("/login"));
+    // };
+  //   verifyCookie();
+  // }, [cookies, navigate, removeCookie]);
+
+  // const Logout = () => {
+  //   removeCookie("token");
+  //   navigate("/signup");
+  // };
 
   return (
     <>

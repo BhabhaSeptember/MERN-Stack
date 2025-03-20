@@ -5,6 +5,8 @@ const router = require("express").Router();
 //causes SignUp controller to be executed
 router.post("/signup", Signup);
 router.post('/login', Login) 
-router.post('/',userVerification)
+router.get('/verify',userVerification)
 
 module.exports = router;
+
+// Nextjs and Mern pr

@@ -1,5 +1,7 @@
-//Shortcut to auto generate a functional component:
-//rafce + enter
+// //Shortcut to auto generate a functional component:
+// //rafce + enter
+
+
 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,7 +16,6 @@ const Login = () => {
   });
   const { email, password } = inputValue;
 
-
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -27,10 +28,10 @@ const Login = () => {
     toast.error(err, {
       position: "bottom-left",
     });
-    
+
   const handleSuccess = (msg) =>
     toast.success(msg, {
-      position: "bottom-left",
+      position: "bottom-right",
     });
 
   const handleSubmit = async (e) => {
@@ -47,9 +48,13 @@ const Login = () => {
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        console.log("Navigating...");
+        navigate("/");
+        // setTimeout(() => {
+        //   console.log("Navigating...")
+        //   navigate("/");
+        // }, 1000);
+
       } else {
         handleError(message);
       }
@@ -98,3 +103,8 @@ const Login = () => {
 };
 
 export default Login;
+
+//Shortcut to auto generate a functional component:
+//rafce + enter
+
+
