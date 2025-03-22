@@ -25,7 +25,7 @@ const userSignUp = async (req, res) => {
     process.env.SECRET_KEY,
     { expiresIn: "1hr" }
   );
-  return res.status(200).json({ token, newUser });
+  return res.status(200).json({ token, user: newUser });
 };
 
 const userLogin = async (req, res) => {
