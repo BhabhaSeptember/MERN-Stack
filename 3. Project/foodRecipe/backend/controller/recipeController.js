@@ -1,4 +1,17 @@
 const Recipes = require("../models/recipeModel");
+const multer = require("multer");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/images");
+  },
+  filename: function (req, file, cb) {
+    const filename = Date.now() + "-" + file.fieldname;
+    cb(null, filename);
+  },
+});
+
+const upload = multer({ storage: storage })
 
 // ========================================= VIEW ALL RECIPES =========================================
 
@@ -27,6 +40,7 @@ const getRecipe = async (req, res) => {
 // ========================================= ADD RECIPE =========================================
 
 const addRecipe = async (req, res) => {
+  console.log(req.user);
   try {
     const { title, ingredients, instructions, time } = req.body;
 
@@ -41,6 +55,8 @@ const addRecipe = async (req, res) => {
       ingredients,
       instructions,
       time,
+      coverImage: req.file.filename,
+      createdBy: req.user.id
     });
     return res.status(201).json(newRecipe);
   } catch (error) {
@@ -52,31 +68,30 @@ const addRecipe = async (req, res) => {
 // ========================================= EDIT RECIPE =========================================
 
 const editRecipe = async (req, res) => {
-    try {
-        const { title, ingredients, instructions, time } = req.body;
-        let recipe = await Recipes.findById(req.params.id)
+  try {
+    const { title, ingredients, instructions, time } = req.body;
+    let recipe = await Recipes.findById(req.params.id);
 
-        if(recipe) {
-            await Recipes.findByIdAndUpdate(req.params.id, req.body, {new: true});
-            return res.status(201).json(title, ingredients, instructions, time);
-        }
-        
-      } catch (error) {
-        console.error("Error retrieving recipe by ID: ", error);
-        return res.status(404).json({ message: "Recipe update error" });
-      }
+    if (recipe) {
+      let coverImage = req.file?.filename ? req.file?.filename : recipe.coverImage
+      await Recipes.findByIdAndUpdate(req.params.id, {...req.body, coverImage}, { new: true });
+      return res.status(201).json(title, ingredients, instructions, time);
+    }
+  } catch (error) {
+    console.error("Error retrieving recipe by ID: ", error);
+    return res.status(404).json({ message: "Recipe update error" });
+  }
 };
 
 // ========================================= DELETE RECIPE =========================================
 
 const deleteRecipe = async (req, res) => {
-    try {
-        const recipe = await Recipes.findById(req.params.id);
-        return res.status(201).json(recipe);
-      } catch (error) {
-        console.error("Error retrieving recipe by ID: ", error);
-        return res.status(500).json({ message: "Internal Server Error" });
-      }
+  try {
+    await Recipes.deleteOne({_id: req.params.id})
+    res.json({status:"ok"})
+  } catch (error) {
+    return res.status(400).json({ message: "Recipe delete error" });
+  }
 };
 
-module.exports = { getRecipes, getRecipe, addRecipe, editRecipe, deleteRecipe };
+module.exports = { getRecipes, getRecipe, addRecipe, editRecipe, deleteRecipe, upload };

@@ -1,11 +1,12 @@
 const express = require("express");
-const { getRecipes, getRecipe, addRecipe, editRecipe, deleteRecipe } = require("../controller/recipeController");
+const { getRecipes, getRecipe, addRecipe, editRecipe, deleteRecipe, upload } = require("../controller/recipeController");
+const verifyToken = require("../middleware/auth");
 const router = express.Router();
 
 router.get("/", getRecipes);
 router.get("/:id", getRecipe);
-router.post("/", addRecipe);
-router.put("/:id", editRecipe);
+router.post("/", upload.single('file'), verifyToken, addRecipe);
+router.put("/:id", upload.single('file'), editRecipe);
 router.delete("/:id", deleteRecipe);
 
 

@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import pot from "../assets/pot.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import RecipeItems from "../components/RecipeItems";
+import { useNavigate } from "react-router-dom";
+import Modal from "../components/Modal";
+import InputForm from "../components/InputForm";
 
 export default function Home() {
+  const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const addRecipe = () => {
+    let token = localStorage.getItem("token");
+    if (token) navigate("/addRecipe");
+    else {
+      setIsOpen(true);
+    }
+  };
+
   return (
     <>
       <section className="home">
@@ -18,9 +32,9 @@ export default function Home() {
             variety of recipes from different cuisines. <br />
             👨‍🍳 Create and share your own favorite dishes with the community. 🥗
             Save your favorite recipes for easy access anytime. <br /> <br />
-            Start exploring, get inspired, and bring amazing meals to life! 🚀
+            SIGNUP or LOGIN to start exploring, get inspired, and bring amazing meals to life! 🚀
           </h5>
-          <button>Share your recipe</button>
+          <button onClick={addRecipe}>Share your recipe</button>
         </div>
 
         <div className="right">
@@ -37,6 +51,12 @@ export default function Home() {
           ></path>
         </svg>
       </div>
+
+      {isOpen && (
+        <Modal onClose={() => setIsOpen(false)}>
+          <InputForm setIsOpen={() => setIsOpen(false)} />
+        </Modal>
+      )}
 
       <div className="recipe">
         <RecipeItems />

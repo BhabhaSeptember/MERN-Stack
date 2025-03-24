@@ -1,0 +1,163 @@
+title: Vegetarian Stir-Fry
+ingredients: [
+        Tofu cubed,
+        Broccoli florets,
+        Carrots sliced,
+        Bell peppers sliced,
+        Soy sauce,
+        Ginger minced,
+        Garlic minced,
+        Sesame oil,
+        Cooked rice for serving
+      ]
+instructions:  In a wok, heat sesame oil over medium-high heat.
+        Add minced ginger and garlic, sauté until fragrant.
+        Add cubed tofu and stir-fry until golden brown.
+        Add broccoli, carrots, and bell peppers. Cook until vegetables are tender-crisp.
+        Pour soy sauce over the stir-fry and toss to combine.
+        Serve over cooked rice.
+time: 35min
+coverImage: https://cdn.dummyjson.com/recipe-images/2.webp
+
+
+title: Chicken Alfredo Pasta
+ingredients: [
+        Fettuccine pasta,
+        Chicken breast sliced,
+        Heavy cream,
+        Parmesan cheese grated,
+        Garlic minced,
+        Butter,
+        Salt and pepper to taste,
+        Fresh parsley for garnish
+      ]
+instructions: Cook fettuccine pasta according to package instructions.
+        In a pan, sauté sliced chicken in butter until fully cooked.
+        Add minced garlic and cook until fragrant.
+        Pour in heavy cream and grated Parmesan cheese.Stir until the cheese is melted.
+        Season with salt and pepper to taste.
+        Combine the Alfredo sauce with cooked pasta.
+        Garnish with fresh parsley before serving.
+        time: 35min
+coverImage: https://cdn.dummyjson.com/recipe-images/4.webp
+
+
+title: Mango Salsa Chicken
+ingredients:  [
+        Chicken thighs,
+        Mango diced,
+        Red onion finely chopped,
+        Cilantro chopped,
+        Lime juice,
+        Jalapeño minced,
+        Salt and pepper to taste,
+        Cooked rice for serving
+      ]
+instructions: Season chicken thighs with salt and pepper.
+        Grill or bake chicken until fully cooked.
+        In a bowl, combine diced mango, chopped red onion, cilantro, minced jalapeño, and lime juice.
+        Dice the cooked chicken and mix it with the mango salsa.
+        Serve over cooked rice.
+time: 40mins
+coverImage: https://cdn.dummyjson.com/recipe-images/5.webp 
+
+
+title: Quinoa Salad with Avocado
+ingredients: [
+        Quinoa cooked,
+        Avocado diced,
+        Cherry tomatoes halved,
+        Cucumber diced,
+        Red bell pepper diced,
+        Feta cheese crumbled,
+        Lemon vinaigrette dressing,
+        Salt and pepper to taste
+      ],
+instructions:  In a large bowl, combine cooked quinoa, diced avocado, 
+halved cherry tomatoes, diced cucumber, diced red bell pepper,
+ and crumbled feta cheese.
+        Drizzle with lemon vinaigrette dressing and toss to combine.
+        Season with salt and pepper to taste.
+        Chill in the refrigerator before serving.
+time: 35mins
+coverImage: https://cdn.dummyjson.com/recipe-images/6.webp
+
+
+title: Brazilian Caipirinha
+ingredients: [
+        Cachaça (Brazilian sugarcane spirit),
+        Lime cut into wedges,
+        Granulated sugar,
+        Ice cubes
+      ]
+instructions: In a glass, muddle lime wedges with granulated sugar to release the juice.
+        Fill the glass with ice cubes.
+        Pour cachaça over the ice and stir well.
+        Sip and enjoy the refreshing taste of the Brazilian Caipirinha!,
+        Adjust sugar and lime to suit your taste preferences.
+time: 5mins
+coverImage: 
+
+
+title: Lebanese Falafel Wrap
+ingredients: [
+        Falafel balls,
+        Whole wheat or regular wraps,
+        Tomatoes diced,
+        Cucumbers sliced,
+        Red onions thinly sliced,
+        Lettuce shredded,
+        Tahini sauce,
+        Fresh parsley chopped
+      ]
+instructions: Warm falafel balls according to package instructions.
+        Place a generous serving of falafel in the center of each wrap.
+        Top with diced tomatoes, sliced cucumbers, red onions, shredded lettuce, and fresh parsley.
+        Drizzle with tahini sauce and wrap tightly.
+        Enjoy this Lebanese Falafel Wrap filled with fresh and flavorful ingredients!
+time: 25mins
+coverImage: 
+
+
+title: South Indian Masala Dosa
+ingredients: [
+        Dosa batter (fermented rice and urad dal batter),
+        Potatoes boiled and mashed,
+        Onions finely chopped,
+        Mustard seeds,
+        Cumin seeds,
+        Curry leaves,
+        Turmeric powder,
+        Green chilies chopped,
+        Ghee,
+        Coconut chutney for serving
+      ]
+instructions: In a pan, heat ghee and add mustard seeds, cumin seeds, and curry leaves.
+        Add chopped onions, green chilies, and turmeric powder. Sauté until onions are golden brown.
+        Mix in boiled and mashed potatoes. Cook until well combined and seasoned.
+        Spread dosa batter on a hot griddle to make thin pancakes.
+        Place a spoonful of the potato mixture in the center, fold, and serve hot.
+        Pair with coconut chutney for a delicious South Indian meal.
+time: 60mins
+coverImage: 
+
+
+title: 
+ingredients:
+instructions: 
+time: 
+coverImage: 
+
+
+title:
+ingredients:
+instructions: 
+time: 
+coverImage: 
+
+
+title:
+ingredients:
+instructions: 
+time: 
+coverImage: 
