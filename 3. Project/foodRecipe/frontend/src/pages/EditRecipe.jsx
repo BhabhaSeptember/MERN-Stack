@@ -48,7 +48,7 @@ export default function EditRecipe() {
   };
 
   return (
-    <>
+    <> 
       <div className="container">
         <form className="form" onSubmit={onHandleSubmit}>
           <div className="form-control">

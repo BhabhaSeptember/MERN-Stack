@@ -12,8 +12,6 @@ export default function Navbar() {
 
   let user = JSON.parse(localStorage.getItem("user"));
 
-
-
   useEffect(() => {
     setIsLogin(token ? false : true);
   }, [token]);
@@ -41,11 +39,14 @@ export default function Navbar() {
           <li onClick={() => isLogin && setIsOpen(true)}>
             <NavLink to={!isLogin ? "/myRecipe" : "/"}>My Recipe's</NavLink>
           </li>
-          <li onClick={() => isLogin && setIsOpen(true)}>
+          {/* <li onClick={() => isLogin && setIsOpen(true)}>
             <NavLink to={!isLogin ? "/favRecipe" : "/"}>Favorites</NavLink>
-          </li>
+          </li> */}
           <li onClick={checkLogin}>
-            <p className="login">{isLogin ? "Login" : "Logout"}{user?.email ? `(${user?.email})` : ""}</p>
+            <p className="login">
+              {isLogin ? "Login" : "Logout"}
+              {user?.email ? `(${user?.email})` : ""}
+            </p>
           </li>
         </ul>
       </header>

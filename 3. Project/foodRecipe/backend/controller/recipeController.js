@@ -17,7 +17,7 @@ const upload = multer({ storage: storage })
 
 const getRecipes = async (req, res) => {
   try {
-    const recipes = await Recipes.find();
+    const recipes = await Recipes.find().populate("createdBy", "email");
     return res.status(201).json(recipes);
   } catch (error) {
     console.error("Error retrieving all recipes: ", error);
@@ -25,7 +25,7 @@ const getRecipes = async (req, res) => {
   }
 };
 
-// ========================================= VIEW RECIPE BY ID =========================================
+// ========================================= VIEW RECIPE BY USER-ID =========================================
 
 const getRecipe = async (req, res) => {
   try {
